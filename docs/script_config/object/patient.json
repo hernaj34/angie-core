@@ -1,0 +1,33 @@
+{
+    "id": 15,
+    "document_type": "object",
+    "code": "patient",
+    "data": {
+        "id": 15,
+        "code": "patient",
+        "name": "Paciente",
+        "properties": [
+            {
+                "code": "name",
+                "name": "Nombre",
+                "type": {
+                    "type": "string"
+                },
+                "description": "Nombre del paciente",
+                "complexityLevel": 1
+            },
+            {
+                "code": "edad",
+                "name": "Age",
+                "type": {
+                    "type": "integer"
+                },
+                "complexityLevel": 1
+            }
+        ],
+        "package_code": "angie.core",
+        "package_version": "1.0.0"
+    },
+    "package_code": "angie.core",
+    "package_version": "1.0.0"
+}

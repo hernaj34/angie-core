@@ -1,0 +1,32 @@
+{
+    "id": 57,
+    "document_type": "object",
+    "code": "user",
+    "data": {
+        "id": 57,
+        "code": "user",
+        "name": "Usuario",
+        "properties": [
+            {
+                "code": "name",
+                "name": "Nombre",
+                "type": {
+                    "type": "string"
+                },
+                "complexityLevel": 1
+            },
+            {
+                "code": "age",
+                "name": "Edad",
+                "type": {
+                    "type": "integer"
+                },
+                "complexityLevel": 1
+            }
+        ],
+        "package_code": "angie.core",
+        "package_version": "1.0.0"
+    },
+    "package_code": "angie.core",
+    "package_version": "1.0.0"
+}

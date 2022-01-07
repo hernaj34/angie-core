@@ -1,0 +1,28 @@
+{
+    "id": 23785,
+    "document_type": "method",
+    "code": "parseHL7",
+    "data": {
+        "id": 23785,
+        "code": "parseHL7",
+        "name": "Parse HL7",
+        "type": {
+            "type": "object",
+            "objectCode": "hl7.message"
+        },
+        "isActive": true,
+        "language": "groovy",
+        "parentType": {
+            "type": "string"
+        },
+        "sourceCode": "return [:];",
+        "description": "",
+        "package_code": "hl7",
+        "renderTemplate": "Parse HL7",
+        "complexityLevel": 1,
+        "package_version": "1.0.0",
+        "sourceCodeForBinaryOperator": ""
+    },
+    "package_code": "hl7",
+    "package_version": "1.0.0"
+}

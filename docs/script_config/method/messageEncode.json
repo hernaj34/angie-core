@@ -1,0 +1,28 @@
+{
+    "id": 23759,
+    "document_type": "method",
+    "code": "messageEncode",
+    "data": {
+        "id": 23759,
+        "code": "messageEncode",
+        "name": "Codificar",
+        "type": {
+            "type": "string"
+        },
+        "isActive": true,
+        "language": "groovy",
+        "parentType": {
+            "type": "object",
+            "objectCode": "hl7.message"
+        },
+        "sourceCode": "return self.encode();",
+        "description": "",
+        "package_code": "hl7",
+        "renderTemplate": "Codificar",
+        "complexityLevel": 1,
+        "package_version": "1.0.0",
+        "sourceCodeForBinaryOperator": ""
+    },
+    "package_code": "hl7",
+    "package_version": "1.0.0"
+}

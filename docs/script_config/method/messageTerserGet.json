@@ -1,0 +1,42 @@
+{
+    "id": 23770,
+    "document_type": "method",
+    "code": "messageTerserGet",
+    "data": {
+        "id": 23770,
+        "code": "messageTerserGet",
+        "name": "Terser get",
+        "type": {
+            "type": "string"
+        },
+        "name_": "Terser set CLONED",
+        "imports": [
+            "ca.uhn.hl7v2.util.Terser"
+        ],
+        "isActive": true,
+        "language": "groovy",
+        "parentType": {
+            "type": "object",
+            "objectCode": "hl7.message"
+        },
+        "sourceCode": "Terser terser = new Terser(self);\nparams.path = resolveTemplate(params.path, context);\nterser.get(params.path);",
+        "description": "",
+        "package_code": "hl7",
+        "paramMembers": [
+            {
+                "code": "path",
+                "name": "Path",
+                "type": {
+                    "type": "string"
+                },
+                "required": false
+            }
+        ],
+        "renderTemplate": "Terser get {{path}}",
+        "complexityLevel": 1,
+        "package_version": "1.0.0",
+        "sourceCodeForBinaryOperator": ""
+    },
+    "package_code": "hl7",
+    "package_version": "1.0.0"
+}

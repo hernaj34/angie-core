@@ -1,0 +1,25 @@
+{
+    "id": 23784,
+    "document_type": "object",
+    "code": "message",
+    "data": {
+        "id": 23784,
+        "code": "message",
+        "name": "Mensaje Hl7",
+        "properties": [
+            {
+                "code": "functions",
+                "name": "Functions",
+                "type": {
+                    "type": "object",
+                    "objectCode": "angie.core.functions"
+                },
+                "complexityLevel": 1
+            }
+        ],
+        "package_code": "hl7",
+        "package_version": "1.0.0"
+    },
+    "package_code": "hl7",
+    "package_version": "1.0.0"
+}

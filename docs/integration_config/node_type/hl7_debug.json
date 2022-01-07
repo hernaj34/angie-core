@@ -1,0 +1,21 @@
+{
+    "id": "465fb039-9240-4579-b8cd-0203fa231b66",
+    "document_type": "node_type",
+    "code": "hl7_debug",
+    "data": {
+        "id": "465fb039-9240-4579-b8cd-0203fa231b66",
+        "code": "hl7_debug",
+        "name": "HL7 Debug",
+        "group": "Utilidades",
+        "handles": "in,out",
+        "defaults": "{}",
+        "package_code": "hl7",
+        "json_ui_schema": "{}",
+        "package_version": "1.0.0",
+        "json_data_schema": "{\n    \"type\": \"object\",\n    \"properties\": {\n        \"name\": {\n            \"type\": \"string\"\n        }\n    }\n}",
+        "camel_component_id": "a5587797-ed99-4834-b267-5fe804583da0",
+        "react_component_type": "default"
+    },
+    "package_code": "hl7",
+    "package_version": "1.0.0"
+}
