@@ -14,7 +14,7 @@
         "parentType": {
             "type": "$anyPrimitive"
         },
-        "sourceCode": "return self == params.value;",
+        "sourceCode": "// Last change\nreturn self == params.value;",
         "description": "",
         "package_code": "angie.core",
         "paramMembers": [
