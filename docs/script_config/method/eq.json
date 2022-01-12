@@ -16,7 +16,7 @@
         "parentType": {
             "type": "$anyPrimitive"
         },
-        "sourceCode": "// Check git 2\nreturn self == params.value;",
+        "sourceCode": "// Check git xx\nreturn self == params.value;",
         "description": "",
         "package_code": "angie.core",
         "paramMembers": [
