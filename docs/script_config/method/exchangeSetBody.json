@@ -1,5 +1,7 @@
 {
     "id": 22457,
+    "package_code": "angie.core",
+    "package_version": "1.0.0",
     "document_type": "method",
     "code": "exchangeSetBody",
     "data": {
@@ -14,7 +16,7 @@
         "language": "groovy",
         "parentType": {
             "type": "object",
-            "objectCode": "angie.core.camelExchange"
+            "objectCode": "angie.core.camel_exchange"
         },
         "sourceCode": "self.getIn().setBody(params.body);",
         "description": "",
@@ -33,7 +35,5 @@
         "complexityLevel": 1,
         "package_version": "1.0.0",
         "sourceCodeForBinaryOperator": ""
-    },
-    "package_code": "angie.core",
-    "package_version": "1.0.0"
+    }
 }

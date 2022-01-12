@@ -1,5 +1,7 @@
 {
     "id": 22458,
+    "package_code": "angie.core",
+    "package_version": "1.0.0",
     "document_type": "method",
     "code": "exchangeGetBody",
     "data": {
@@ -13,7 +15,7 @@
         "language": "groovy",
         "parentType": {
             "type": "object",
-            "objectCode": "angie.core.camelExchange"
+            "objectCode": "angie.core.camel_exchange"
         },
         "sourceCode": "return self.getIn().getBody(String.class);",
         "description": "",
@@ -22,7 +24,5 @@
         "complexityLevel": 1,
         "package_version": "1.0.0",
         "sourceCodeForBinaryOperator": ""
-    },
-    "package_code": "angie.core",
-    "package_version": "1.0.0"
+    }
 }

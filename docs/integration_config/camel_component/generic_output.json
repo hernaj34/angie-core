@@ -1,5 +1,7 @@
 {
     "id": "1e2cd28f-7f6f-40de-a153-d716c2e4bd2b",
+    "package_code": "angie.core",
+    "package_version": "1.0.0",
     "document_type": "camel_component",
     "code": "generic_output",
     "data": {
@@ -8,9 +10,7 @@
         "name": "Generic Output",
         "options": "{\n    \"protocol\": \"string\",\n    \"source\": \"string\",\n    \"hostname\": \"string\",\n    \"port\": \"number\",\n    \"path\": \"string\",\n    \"query_params\": \"array\"\n}",
         "package_code": "angie.core",
-        "xml_template": "<route>\n    <from uri=\"direct:{{source}}\"/>\n    <to uri=\"{{protocol}}://{{hostname}}:{{port}}{{path}}{{querystring query_params}}\"/>\n</route>",
+        "xml_template": "<route  id=\"{{source}}\">\n    <from uri=\"direct:{{source}}\"/>\n    <to uri=\"{{protocol}}://{{hostname}}:{{port}}{{path}}{{querystring query_params}}\"/>\n</route>",
         "package_version": "1.0.0"
-    },
-    "package_code": "angie.core",
-    "package_version": "1.0.0"
+    }
 }
