@@ -170,14 +170,354 @@
                 "messages_sent": 0,
                 "last_updated": "2022-01-12T12:00:22.898Z",
                 "last_deployed_route": "<routes xmlns=\"http://camel.apache.org/schema/spring\"><route id=\"107bc67a-20c0-45c4-a337-e186ea4825ba\">\n    <from uri=\"direct:107bc67a-20c0-45c4-a337-e186ea4825ba\"/>\n    <script>\n        <groovy>\n<![CDATA[import com.github.mustachejava.DefaultMustacheFactory;\nimport com.github.mustachejava.Mustache;\nimport java.io.StringReader;\nimport java.io.StringWriter;\nimport java.io.Writer;\n\n// Code preparation\ndef context = [exchange: exchange, request: request, response: response, properties: properties, variables: [:]];\ndef nestedSet( variables, variablePath, Object value){\n    def index = 0\n    def currentVariable = variables\n    for (member in variablePath){\n        if (index == variablePath.size() - 1) {\n            currentVariable[member] = value\n        }else{\n            if (!currentVariable.containsKey(member)){\n                currentVariable[member] = [:]\n            }\n            currentVariable = currentVariable[member]\n        }\n        index++\n    }\n}\n\ndef resolveTemplate(String template, Object context){\n    Writer writer = new StringWriter();\n    DefaultMustacheFactory mf = new DefaultMustacheFactory();\n    mf.compile(new StringReader(template),\"test\",\"#{\",\"}\").execute(writer,context);\n    return writer.toString();\n}\n\n// Functions\n\ndef exchangeSetBody(self, options) {\n    context = options.context;\n    params = options.params;\n    variablePath = options.variablePath;\n    self.getIn().setBody(params.body);\n}\n\n// Start\n\n// Nuevo grupo de expresiones\nexchangeSetBody(context?.exchange, [ params: [\"body\": \"Hello world!!\"], context: context]);\n\n// End]]>\n        </groovy>\n    </script>\n    <multicast>\n        <to uri=\"direct:8655c03f-d1a2-41b6-ad7c-fa72e7dd3412\"/>\n    </multicast>\n</route><route  id=\"6de988ee-316c-4ad5-beec-414ddd4bfa30\">\n    <from uri=\"jetty:http://0.0.0.0:8888/test\"/>\n    <multicast>\n        <to uri=\"direct:107bc67a-20c0-45c4-a337-e186ea4825ba\"/>\n    </multicast>\n</route><route  id=\"8655c03f-d1a2-41b6-ad7c-fa72e7dd3412\">\n    <from uri=\"direct:8655c03f-d1a2-41b6-ad7c-fa72e7dd3412\"/>\n    <to uri=\"log:debug\"/>\n</route></routes>"
+            },
+            {
+                "name": "academic_kingfisher",
+                "id": "8fc44df5-acea-43f0-949d-406dc136ef43",
+                "created_on": "2022-01-18T11:38:27.588Z",
+                "version": 21,
+                "nodes": [
+                    {
+                        "id": "e5863bf3-de1c-4e1f-876a-2c8ca902d118",
+                        "type_id": "http_input",
+                        "position": {
+                            "x": 155,
+                            "y": 167
+                        },
+                        "data": {
+                            "label": "HTTP Input",
+                            "out_format": "raw",
+                            "protocol": "jetty:http",
+                            "hostname": "0.0.0.0",
+                            "path": "/test",
+                            "port": 8888
+                        },
+                        "links": [
+                            {
+                                "node_id": "0f130f32-0471-4e48-86d8-5416f489f076",
+                                "handle": null
+                            }
+                        ]
+                    },
+                    {
+                        "id": "0f130f32-0471-4e48-86d8-5416f489f076",
+                        "type_id": "groovy_visual_editor",
+                        "position": {
+                            "x": 403,
+                            "y": 164
+                        },
+                        "data": {
+                            "script": {
+                                "contextCode": "angie.core.camel_context_groovy",
+                                "contextMember": {
+                                    "memberType": "context",
+                                    "code": "context",
+                                    "name": "context",
+                                    "type": {
+                                        "type": "object",
+                                        "objectCode": "angie.core.camel_context"
+                                    }
+                                },
+                                "language": "groovy",
+                                "mainStatement": {
+                                    "id": "main-block",
+                                    "type": "block",
+                                    "main": true,
+                                    "variables": {},
+                                    "nestedStatements": [
+                                        {
+                                            "id": "start",
+                                            "type": "start",
+                                            "name": "Inicio"
+                                        },
+                                        {
+                                            "id": "02f3f92f-5285-4d62-9068-c5882c70397d",
+                                            "type": "expressionGroup",
+                                            "name": "Nuevo grupo de expresiones",
+                                            "expressions": [
+                                                [
+                                                    {
+                                                        "memberType": "context",
+                                                        "code": "context",
+                                                        "name": "context",
+                                                        "type": {
+                                                            "type": "object",
+                                                            "objectCode": "angie.core.camel_context"
+                                                        }
+                                                    },
+                                                    {
+                                                        "memberType": "property",
+                                                        "code": "exchange",
+                                                        "name": "Exchange",
+                                                        "type": {
+                                                            "type": "object",
+                                                            "objectCode": "angie.core.camel_exchange"
+                                                        },
+                                                        "complexityLevel": 1
+                                                    },
+                                                    {
+                                                        "memberType": "method",
+                                                        "id": 22457,
+                                                        "code": "exchangeSetBody",
+                                                        "name": "Set body",
+                                                        "type": {
+                                                            "type": "void"
+                                                        },
+                                                        "name_": "Test CLONED",
+                                                        "isActive": true,
+                                                        "language": "groovy",
+                                                        "parentType": {
+                                                            "type": "object",
+                                                            "objectCode": "angie.core.camel_exchange"
+                                                        },
+                                                        "sourceCode": "self.getIn().setBody(params.body);",
+                                                        "description": "",
+                                                        "package_code": "angie.core",
+                                                        "paramMembers": [
+                                                            {
+                                                                "code": "body",
+                                                                "name": "Cuerpo",
+                                                                "type": {
+                                                                    "type": "string"
+                                                                },
+                                                                "required": false
+                                                            }
+                                                        ],
+                                                        "renderTemplate": "Modificar cuerpo {{body}}",
+                                                        "complexityLevel": 1,
+                                                        "package_version": "1.0.0",
+                                                        "sourceCodeForBinaryOperator": "",
+                                                        "params": {
+                                                            "body": "Hello world"
+                                                        }
+                                                    }
+                                                ]
+                                            ]
+                                        },
+                                        {
+                                            "id": "d8b741f9-e88d-4946-840c-034c31c8529d",
+                                            "type": "condition",
+                                            "name": "Nueva condición",
+                                            "rule": {
+                                                "type": "group",
+                                                "combinator": "all",
+                                                "rules": [
+                                                    {
+                                                        "type": "expression",
+                                                        "expression": [
+                                                            {
+                                                                "memberType": "context",
+                                                                "code": "context",
+                                                                "name": "context",
+                                                                "type": {
+                                                                    "type": "object",
+                                                                    "objectCode": "angie.core.camel_context"
+                                                                }
+                                                            },
+                                                            {
+                                                                "memberType": "property",
+                                                                "code": "exchange",
+                                                                "name": "Exchange",
+                                                                "type": {
+                                                                    "type": "object",
+                                                                    "objectCode": "angie.core.camel_exchange"
+                                                                },
+                                                                "complexityLevel": 1,
+                                                                "error": true
+                                                            },
+                                                            {
+                                                                "memberType": "method",
+                                                                "id": 22458,
+                                                                "code": "exchangeGetBody",
+                                                                "name": "Get body",
+                                                                "type": {
+                                                                    "type": "string"
+                                                                },
+                                                                "isActive": true,
+                                                                "language": "groovy",
+                                                                "parentType": {
+                                                                    "type": "object",
+                                                                    "objectCode": "angie.core.camel_exchange"
+                                                                },
+                                                                "sourceCode": "return self.getIn().getBody(String.class);",
+                                                                "description": "",
+                                                                "package_code": "angie.core",
+                                                                "renderTemplate": "Body",
+                                                                "complexityLevel": 1,
+                                                                "package_version": "1.0.0",
+                                                                "sourceCodeForBinaryOperator": "",
+                                                                "paramMembers": [],
+                                                                "error": true
+                                                            },
+                                                            {
+                                                                "memberType": "method",
+                                                                "id": 117,
+                                                                "code": "eq",
+                                                                "name": "=",
+                                                                "type": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "isActive": true,
+                                                                "language": "groovy",
+                                                                "parentType": {
+                                                                    "type": "$anyPrimitive"
+                                                                },
+                                                                "sourceCode": "// Check git very last\nreturn self == params.value;",
+                                                                "description": "",
+                                                                "package_code": "angie.core",
+                                                                "paramMembers": [
+                                                                    {
+                                                                        "code": "value",
+                                                                        "name": "Valor",
+                                                                        "type": {
+                                                                            "type": "string"
+                                                                        },
+                                                                        "required": false
+                                                                    }
+                                                                ],
+                                                                "renderOperator": "=",
+                                                                "renderTemplate": "{{value}}",
+                                                                "complexityLevel": 1,
+                                                                "package_version": "1.0.0",
+                                                                "sourceCodeForBinaryOperator": "",
+                                                                "params": {
+                                                                    "value": "test"
+                                                                },
+                                                                "error": true
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            "nestedStatements": [
+                                                {
+                                                    "id": "c9fe9999-1046-494d-b479-964e646b99dc",
+                                                    "type": "block",
+                                                    "label": "Sí",
+                                                    "code": "true",
+                                                    "nestedStatements": [
+                                                        {
+                                                            "id": "03cc6abd-5d37-4c64-9f43-7af85bb0c4c6",
+                                                            "type": "expressionGroup",
+                                                            "name": "Nuevo grupo de expresiones",
+                                                            "expressions": [
+                                                                [
+                                                                    {
+                                                                        "memberType": "context",
+                                                                        "code": "context",
+                                                                        "name": "context",
+                                                                        "type": {
+                                                                            "type": "object",
+                                                                            "objectCode": "angie.core.camel_context"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "memberType": "property",
+                                                                        "code": "functions",
+                                                                        "name": "Funciones",
+                                                                        "type": {
+                                                                            "type": "object",
+                                                                            "objectCode": "angie.core.functions"
+                                                                        },
+                                                                        "complexityLevel": 1
+                                                                    },
+                                                                    {
+                                                                        "memberType": "method",
+                                                                        "id": 124,
+                                                                        "code": "logInfo",
+                                                                        "name": "Log información",
+                                                                        "type": {
+                                                                            "type": "void"
+                                                                        },
+                                                                        "isActive": true,
+                                                                        "language": "groovy",
+                                                                        "parentType": {
+                                                                            "type": "object",
+                                                                            "objectCode": "angie.core.functions"
+                                                                        },
+                                                                        "sourceCode": "println(params.message);",
+                                                                        "description": "",
+                                                                        "package_code": "angie.core",
+                                                                        "paramMembers": [
+                                                                            {
+                                                                                "code": "message",
+                                                                                "name": "Mensaje",
+                                                                                "type": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "required": false
+                                                                            }
+                                                                        ],
+                                                                        "renderTemplate": "Log {{message}}",
+                                                                        "complexityLevel": 1,
+                                                                        "package_version": "1.0.0",
+                                                                        "sourceCodeForBinaryOperator": "",
+                                                                        "params": {
+                                                                            "message": "Body Test"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "id": "74e2ce69-d781-467b-8cc6-6e302234d2c4",
+                                                    "type": "block",
+                                                    "label": "No",
+                                                    "code": "false",
+                                                    "nestedStatements": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "end",
+                                            "type": "end",
+                                            "name": "Fin"
+                                        }
+                                    ]
+                                }
+                            },
+                            "label": "Visual Groovy Code",
+                            "beforeSave": "generateCode",
+                            "code": "import com.github.mustachejava.DefaultMustacheFactory;\nimport com.github.mustachejava.Mustache;\nimport java.io.StringReader;\nimport java.io.StringWriter;\nimport java.io.Writer;\n\n// Code preparation\ndef context = [exchange: exchange, request: request, response: response, properties: properties, variables: [:]];\ndef nestedSet( variables, variablePath, Object value){\n    def index = 0\n    def currentVariable = variables\n    for (member in variablePath){\n        if (index == variablePath.size() - 1) {\n            currentVariable[member] = value\n        }else{\n            if (!currentVariable.containsKey(member)){\n                currentVariable[member] = [:]\n            }\n            currentVariable = currentVariable[member]\n        }\n        index++\n    }\n}\n\ndef resolveTemplate(String template, Object context){\n    Writer writer = new StringWriter();\n    DefaultMustacheFactory mf = new DefaultMustacheFactory();\n    mf.compile(new StringReader(template),\"test\",\"#{\",\"}\").execute(writer,context);\n    return writer.toString();\n}\n\n// Functions\n\ndef exchangeSetBody(self, options) {\n    context = options.context;\n    params = options.params;\n    variablePath = options.variablePath;\n    self.getIn().setBody(params.body);\n}\n\ndef exchangeGetBody(self, options) {\n    context = options.context;\n    params = options.params;\n    variablePath = options.variablePath;\n    return self.getIn().getBody(String.class);\n}\n\ndef eq(self, options) {\n    context = options.context;\n    params = options.params;\n    variablePath = options.variablePath;\n    // Check git very last\n    return self == params.value;\n}\n\ndef logInfo(self, options) {\n    context = options.context;\n    params = options.params;\n    variablePath = options.variablePath;\n    println(params.message);\n}\n\n// Start\n\n// Nuevo grupo de expresiones\nexchangeSetBody(context?.exchange, [ params: [\"body\": \"Hello world\"], context: context]);\n\n// Nueva condición\nif (eq(exchangeGetBody(context?.exchange, [ params: [:], context: context]), [ params: [\"value\": \"test\"], context: context])){\n    \n    // Nuevo grupo de expresiones\n    logInfo(context?.functions, [ params: [\"message\": \"Body Test\"], context: context]);\n} else {\n}\n\n// End"
+                        },
+                        "links": [
+                            {
+                                "node_id": "c23f77bf-2eee-4d55-877a-c96365d7290b",
+                                "handle": null
+                            }
+                        ]
+                    },
+                    {
+                        "id": "c23f77bf-2eee-4d55-877a-c96365d7290b",
+                        "type_id": "log",
+                        "position": {
+                            "x": 653,
+                            "y": 173
+                        },
+                        "data": {
+                            "label": "Log",
+                            "name": "debug"
+                        },
+                        "links": []
+                    }
+                ],
+                "enabled": true,
+                "status": "Started",
+                "last_updated": "2022-01-18T15:12:32.192Z",
+                "last_deployed_route": null,
+                "messages_total": 1,
+                "messages_error": 0,
+                "messages_sent": 1
             }
         ],
         "package_code": "angie.core",
         "package_version": "1.0.0",
-        "last_updated": "2022-01-12T12:00:59.442Z",
+        "last_updated": "2022-01-19T11:45:08.669Z",
         "deployment_config": {
             "id": "543955a4-cfc3-4fcd-b1ea-9e35219bafef",
-            "last_deployment_date": "2022-01-12T12:00:59.445Z",
+            "last_deployment_date": "2022-01-19T11:45:08.673Z",
             "deployment_config": null,
             "organization_id": "73954ca9-2c56-48fe-b8c5-70ddd6659857",
             "enabled": true,
